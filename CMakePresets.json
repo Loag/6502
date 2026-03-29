@@ -8,24 +8,26 @@
   "configurePresets": [
     {
       "name": "dev-debug",
-      "displayName": "Dev Debug",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/dev-debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_CXX_COMPILER": "clang++",
-        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "ENABLE_CLANG_TIDY": "ON",
+        "ENABLE_SANITIZERS": "OFF"
       }
     },
     {
-      "name": "dev-release",
-      "displayName": "Dev Release",
+      "name": "dev-sanitize",
       "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build/dev-release",
+      "binaryDir": "${sourceDir}/build/dev-sanitize",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_CXX_COMPILER": "clang++",
-        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "ENABLE_CLANG_TIDY": "ON",
+        "ENABLE_SANITIZERS": "ON"
       }
     }
   ],
@@ -35,14 +37,8 @@
       "configurePreset": "dev-debug"
     },
     {
-      "name": "build-release",
-      "configurePreset": "dev-release"
-    }
-  ],
-  "testPresets": [
-    {
-      "name": "test-debug",
-      "configurePreset": "dev-debug"
+      "name": "build-sanitize",
+      "configurePreset": "dev-sanitize"
     }
   ]
 }

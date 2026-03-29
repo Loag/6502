@@ -17,9 +17,29 @@
       ]
     },
     {
+      "label": "cmake-build-sanitize",
+      "type": "shell",
+      "command": "cmake --build --preset build-sanitize",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
       "label": "cmake-test-debug",
       "type": "shell",
       "command": "ctest --test-dir build/dev-debug --output-on-failure",
+      "problemMatcher": []
+    },
+    {
+      "label": "ctest-sanitize",
+      "type": "shell",
+      "command": "ctest --test-dir build/dev-sanitize --output-on-failure",
+      "problemMatcher": []
+    },
+    {
+      "label": "format",
+      "type": "shell",
+      "command": "find app include src tests -name '*.cpp' -o -name '*.hpp' | xargs clang-format -i",
       "problemMatcher": []
     }
   ]
