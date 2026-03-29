@@ -15,6 +15,12 @@
       "problemMatcher": [
         "$gcc"
       ]
+    },
+    {
+      "label": "cmake-test-debug",
+      "type": "shell",
+      "command": "ctest --test-dir build/dev-debug --output-on-failure",
+      "problemMatcher": []
     }
   ]
 }
